@@ -1,14 +1,4 @@
-************************************************************
-                    By DEFANSİVE SECURİTY
-************************************************************
-sudo netstat -plnt --> portları kapat
-sudo gufw          --> firewall indir
-                   --> yerli antivirüs
-                   --> yerli sistem pardus
-                   --> gereksiz gördüğün tüm uygulamaları ve servisleri sil
-                   --> şifreli disk
-                   --> uzun parolalar
-                   --> 
+
 
 ************************************************************
                     By OFENSİVE SECURİTY
